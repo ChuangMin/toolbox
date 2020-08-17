@@ -42,7 +42,7 @@ function converttounixtime(){
   document.getElementById("formattime2").innerHTML = formate_time2;
   document.getElementById("formattime3").innerHTML = formate_time3;
   //UTC
-  var a = a.toUTCString();
+  var a = a + x.getTimezoneOffset()*60*1000;
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var year = a.getFullYear();
   var month = a.getMonth() + 1;
