@@ -3,7 +3,25 @@
 <head>
 <title>Unix Time Converter</title>
 <script>
-
+function convertcurrenttounixtime(){
+  var a = new Date(Date.now() );
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear() + 1;
+  //var month = months[a.getMonth()];
+  var month = a.getMonth() + 1;
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+  var formate_time1 = year + ' ' + month + ' ' + date + ' ' + hour + ':' + min + ':' + sec ;
+  var formate_time2 = year + '/' + month + '/' + date + ' ' + hour + ':' + min + ':' + sec ;
+  var formate_time3 = date + ' ' + months[a.getMonth()] + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+  document.getElementById("Currenttimestamp").innerHTML = new Date().getTime();
+  document.getElementById("Currentformattime0").innerHTML = a;
+  document.getElementById("Currentformattime1").innerHTML = formate_time1; 
+  document.getElementById("Currentformattime2").innerHTML = formate_time2;
+  document.getElementById("Currentformattime3").innerHTML = formate_time3;
+}
 function converttounixtime(){
 //let unix_timestamp = 1549312452
   var UNIX_timestamp = document.getElementById("text").value;
@@ -23,30 +41,14 @@ function converttounixtime(){
   document.getElementById("formattime2").innerHTML = formate_time2;
   document.getElementById("formattime3").innerHTML = formate_time3;
 }
-function convertcurrenttounixtime(){
-  var a = new Date(Date.now() );
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var year = a.getFullYear() + 1;
-  //var month = months[a.getMonth()];
-  var month = a.getMonth() + 1;
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-  var sec = a.getSeconds();
-  var formate_time1 = year + ' ' + month + ' ' + date + ' ' + hour + ':' + min + ':' + sec ;
-  var formate_time2 = year + '/' + month + '/' + date + ' ' + hour + ':' + min + ':' + sec ;
-  var formate_time3 = date + ' ' + months[a.getMonth()] + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-  document.getElementById("Currentformattime0").innerHTML = a;
-  document.getElementById("Currentformattime1").innerHTML = formate_time1; 
-  document.getElementById("Currentformattime2").innerHTML = formate_time2;
-  document.getElementById("Currentformattime3").innerHTML = formate_time3;
-}
+
 
 </script>
 </head>
 <body>
 <h1>Unix Time Converter</h1>
  <p>Current Unix Time Timestamp</p>
+ <p id="Currenttimestamp"></p>
  <p id="Currentformattime0"></p>
  <p id="Currentformattime1"></p> 
  <p id="Currentformattime2"></p> 
